@@ -1,0 +1,83 @@
+body {
+  background-image: url("images/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "VT323", monospace;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+.header {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  background-color: #c186ff60;
+  padding-right: 30px;
+  padding-top: 10px;
+}
+.header-title{
+  padding-left: 50px;
+}
+.header-link {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 30px;
+}
+.header-link-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  border-radius: 10px;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 100px;
+}
+.disabilities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  gap: 50px;
+  padding: 20px;
+  width: 90%;
+  min-height: 400px;
+  margin-bottom: 30px;
+}
+
+.disabilities-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+  height: 400px;
+  background-color: #c186ff60;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.motivation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding: 20px;
+}
+.scale-up:hover{
+  box-shadow: 0 0px 5px rgba(255, 255, 255, 0.316),
+    0 0 5px rgba(255, 255, 255, 0.316);
+  transform: scale(1.05);
+  transition: all 0.5s ease-in-out;
+}

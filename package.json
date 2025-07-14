@@ -1,0 +1,19 @@
+{
+  "name": "algoverse",
+  "version": "1.0.0",
+  "description": "AI/ML based health care system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GZ 3",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "openai": "^3.3.0"
+  }
+}
