@@ -14,12 +14,12 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('images/chatbg.jpeg');
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #333;
+            color: #9455d7;
             cursor: pointer;
             position: relative;
             overflow: hidden;
@@ -35,33 +35,31 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             border-radius: 30px;
             padding: 2rem;
             max-width: 400px;
             max-height: 100%;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 30px rgba(123, 104, 238, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.3);
             text-align: center;
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
-
         }
 
         h1 {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #4a5568;
+            color: #bc58ff;
             font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
         }
 
         .instruction {
             font-size: 1.3rem;
-            color: #718096;
             margin-bottom: 3rem;
             font-weight: 500;
         }
@@ -74,18 +72,12 @@
 
         .mic-icon {
             font-size: 6rem;
-            color: #667eea;
+            color: #7B1FA2;
             transition: all 0.3s ease;
             display: inline-block;
         }
 
-        .mic-icon:hover {
-            color: #5a67d8;
-            transform: scale(1.1);
-        }
-
         .mic-icon.active {
-            color: #e53e3e;
             animation: micPulse 1.5s infinite;
         }
 
@@ -111,14 +103,14 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            border: 3px solid #8102ff;
+            border: 3px solid #d3a9fb;
             opacity: 0;
             animation: pulse 2s infinite;
         }
 
         .pulse-ring.active {
             opacity: 1;
-            border-color: #e53e3e;
+            border-color: #ae00ff;
         }
 
         @keyframes pulse {
@@ -144,32 +136,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .status.idle {
-            background: linear-gradient(135deg, #e2e8f0 0%, #f7fafc 100%);
-            color: #4a5568;
-            border: 2px solid #cbd5e0;
-        }
-
-        .status.listening {
-            background: linear-gradient(135deg, #fed7d7 0%, #fef5e7 100%);
-            color: #c53030;
-            border: 2px solid #fc8181;
+            background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 100%);
+            color: #4a148c;
+            border: 2px solid #ba68c8;
             animation: statusPulse 2s infinite;
-        }
-
-        .status.processing {
-            background: linear-gradient(135deg, #fef5e7 0%, #feebcb 100%);
-            color: #c05621;
-            border: 2px solid #f6ad55;
-        }
-
-        .status.speaking {
-            background: linear-gradient(135deg, #c6f6d5 0%, #e6fffa 100%);
-            color: #2f855a;
-            border: 2px solid #68d391;
-            animation: speakingGlow 1.5s infinite alternate;
         }
 
         @keyframes statusPulse {
@@ -188,39 +158,40 @@
 
         @keyframes speakingGlow {
             0% {
-                box-shadow: 0 0 20px rgba(104, 211, 145, 0.3);
+                box-shadow: 0 0 20px rgba(129, 212, 250, 0.3);
+                /* Changed glow color to match speaking status */
             }
 
             100% {
-                box-shadow: 0 0 30px rgba(104, 211, 145, 0.6);
+                box-shadow: 0 0 30px rgba(129, 212, 250, 0.6);
+                /* Changed glow color to match speaking status */
             }
         }
 
         .transcript-container {
-            background: #f8fafc;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 30px rgba(123, 104, 238, 0.4);
             border: 2px solid #e2e8f0;
             border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            min-height: 100%;
+            height: 100%;
+            max-height: 500px;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            padding: 20px;
         }
 
         .transcript {
             font-size: 1.2rem;
-            line-height: 1.6;
-            color: #4a5568;
+            color: #b06fff;
             font-style: italic;
             max-width: 100%;
             word-wrap: break-word;
-        }
-
-        .transcript.empty {
-            color: #a0aec0;
+            padding: 20px;
+            overflow: auto;
         }
 
         .loading-dots {
@@ -237,7 +208,7 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #4a5568;
+            background: #9455d7;
             animation-timing-function: cubic-bezier(0, 1, 1, 0);
         }
 
@@ -357,6 +328,27 @@
                 font-size: 1rem;
             }
         }
+
+        @media (max-width: 480px) {
+            body {
+                overflow: visible;
+                align-items: flex-start;
+            }
+
+            .main {
+                flex-direction: column;
+                align-items: center;
+                top: 20px;
+            }
+
+            .container {
+                width: 100%;
+            }
+
+            .status {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 
@@ -372,11 +364,11 @@
             </div>
 
             <div class="status idle" id="status">
-                Ready - Click to start listening
+                Click to start listening
             </div>
         </div>
         <div class="transcript-container" style="margin-bottom: 0;">
-            <div class="transcript empty" id="transcript">
+            <div class="transcript empty" id="transcript" style="height: 440px;">
                 Your speech will appear here...
             </div>
         </div>
@@ -472,6 +464,8 @@
             setupEventListeners() {
                 // Click anywhere to activate
                 document.addEventListener('click', (e) => {
+                    const audio = new Audio('audio/mic-on.mp3');
+                    audio.play();
                     this.createRipple(e);
 
                     if (!this.isListening && !this.isProcessing) {
@@ -569,7 +563,6 @@
 
             speak(text) {
                 return new Promise((resolve) => {
-                    // Cancel any ongoing speech
                     this.synthesis.cancel();
 
                     const utterance = new SpeechSynthesisUtterance(text);
@@ -582,7 +575,7 @@
                     };
 
                     utterance.onerror = () => {
-                        resolve(); // Resolve even on error
+                        resolve();
                     };
 
                     this.synthesis.speak(utterance);
@@ -599,10 +592,10 @@
             }
         }
 
-        // Initialize the voice search when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             new VoiceSearch();
         });
+
     </script>
 </body>
 

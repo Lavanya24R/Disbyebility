@@ -255,7 +255,7 @@
         const res = await fetch("http://localhost:5000/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: userText })
+          body: JSON.stringify({ message: userText + ". Explain in simple words." })
         });
         const data = await res.json();
         const botReply = data.choices?.[0]?.message?.content || "⚠️ No response.";
