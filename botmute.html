@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <title>Disbyebility</title>
+
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Winky Rough", "VT323", "Pixelify Sans", cursive;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-image: url("images/chatbg2.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    padding: 20px 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(128, 90, 213, 0.3);
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+    color: #f3e8ff;
+    font-weight: bold;
+    margin-left: 20px;
+    text-shadow: 0 0 10px #9935f7;
+  }
+
+  .header-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 20px;
+  }
+
+  .header-link-item {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 0 transparent;
+    cursor: pointer;
+  }
+
+  .header-link-item svg {
+    font-size: 1.3rem;
+    transition: transform 0.2s ease;
+    color: #d8b4fe;
+  }
+
+  /* Hover Glow */
+  .scale-up:hover {
+    transform: scale(1.1);
+    background-color: rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 12px #d8b4fe, 0 0 20px #c084fc;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .chat-box {
+    width: 80%;
+    max-width: 800px;
+    height: 80%;
+    min-height: 500px;
+    margin-top: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 30px rgba(123, 104, 238, 0.4);
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: glow-border 4s infinite ease-in-out;
+  }
+
+  @keyframes glow-border {
+    0% {
+      box-shadow: 0 0 10px #b38aff, 0 0 20px #b38aff;
+    }
+
+    50% {
+      box-shadow: 0 0 20px #b38aff, 0 0 40px #d3b3ff;
+    }
+
+    100% {
+      box-shadow: 0 0 10px #b38aff, 0 0 20px #b38aff;
+    }
+  }
+
+  .messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #d3b3ff transparent;
+  }
+
+  .messages::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .messages::-webkit-scrollbar-thumb {
+    background-color: #d3b3ff;
+    border-radius: 10px;
+  }
+
+  .message {
+    padding: 12px 16px;
+    margin: 6px 0;
+    border-radius: 12px;
+    max-width: 75%;
+    word-wrap: break-word;
+    transition: background 0.3s ease;
+  }
+
+  .user {
+    background: linear-gradient(to right, #c084fc, #a855f7, #9333ea);
+    color: white;
+    align-self: flex-end;
+  }
+
+  .bot {
+    background: linear-gradient(to right, #7c3aed, #8b5cf6, #a78bfa);
+    color: #ffffff;
+    align-self: flex-start;
+  }
+
+  .input-box {
+    display: flex;
+    gap: 10px;
+  }
+
+  input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #b38aff, #8c65f7);
+    color: white;
+    transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, #8c65f7, #b38aff);
+  }
+
+  @media (max-width: 450px) {
+    button {
+      width: 50px;
+      height: 50px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="header-title">Disbyebility</div>
+    <div class="header-links">
+      <div class="header-link-item" alt="Home button" onclick="window.location.href='index.html'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#9935f7" class="bi bi-house-fill scale-up"
+          viewBox="0 0 16 16">
+          <path
+            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+          <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="chat-box">
+    <div class="messages" id="messages">
+      <!-- Messages will appear here -->
+    </div>
+    <div class="input-box">
+      <input type="text" placeholder="Type your message..." id="userInput" />
+      <button onclick="sendMessage()" id="send"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+          fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+          <path
+            d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
+        </svg></button>
+    </div>
+  </div>
+  <script>
+    const messagesDiv = document.getElementById("messages");
+
+    const appendMessage = (text, sender) => {
+      const msg = document.createElement("div");
+      msg.className = "message " + sender;
+      msg.textContent = text;
+      messagesDiv.appendChild(msg);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    };
+
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const userText = input.value.trim();
+      if (!userText) return;
+
+      appendMessage(userText, "user");
+      input.value = "";
+      appendMessage("Typing...", "bot");
+
+      try {
+        const res = await fetch("http://localhost:5000/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: userText })
+        });
+        const data = await res.json();
+        const botReply = data.choices?.[0]?.message?.content || "⚠️ No response.";
+        messagesDiv.lastChild.remove(); // remove "Typing..."
+        appendMessage(botReply, "bot");
+      } catch (err) {
+        messagesDiv.lastChild.remove();
+        appendMessage("⚠️ Error: " + err.message, "bot");
+      }
+    }
+  </script>
+</body>
+
+</html>
