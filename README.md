@@ -47,10 +47,35 @@ Built with **WCAG (Web Content Accessibility Guidelines)** in mind, the website 
    git clone https://github.com/Lavanya24R/Disbyebility.git
    cd Disbyebility
 
-2. **Run python scripts**
+2. **Create a python environment**
 
+   ```bash
+   python -m venv .venv
+
+3. **Activate the environment**
+
+   ```bash
+   Windows: .\venv\Scripts\activate
+   Mac/Linux: source venv/bin/activate
+
+
+4. **Install the required libraries**
+
+   ```bash
+   pip install flask flask_cors requests os dotenv
+
+5. **Create API Key**
+
+   Go to: https://openrouter.ai/settings/keys
+   Create an API Key and paste it in a .env file in the ./(root) directory
+   .env file:
+   OPENROUTER_API_KEY=XXXXXXXXXXXXXXXXXXXXX
+
+6. **Run python scripts**
+
+   ```bash
    python app.py
 
-3. **Open the html files**
+7. **Open the html files**
 
    Open the index.html file in the browser using live server
